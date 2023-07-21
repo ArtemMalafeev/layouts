@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway&display=swap');
+
+:root {
+    --header-height: 3rem;
+}
+
+:root {
+    --color-first: #EA4C89;
+    --color-secondary: #1D2063;
+    --color-text: #FFFFFF;
+}
+
+:root {
+    --heading-font: 'Raleway';
+    --body-font: 'Open Sans';
+    --h1-font-size: 2rem;
+    --h3-font-size: 1rem;
+    --small-font-size: 0.8125rem;
+}
+
+@media screen and (min-width: 768px) {
+    :root {
+        --h1-font-size: 3.5rem;
+        --h3-font-size: 1.25rem;
+        --small-font-size: 0.8125rem;
+    }
+}
+
+:root {
+    --z-back: -10;
+    --z-normal: 1;
+    --z-tooltip: 10;
+    --z-fixed: 100;
+    --z-modal: 1000;
+}
+
+/* BASE */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: var(--header-height) 0 0 0;
+
+    font-family: var(--body-font);
+    color: var(--color-text);
+
+    background-color: var(--color-secondary);
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    font-family: var(--heading-font);
+    font-size: var(--h1-font-size);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* LAYAOUT */
+.bd-grid {
+    display: grid;
+    grid-template-columns: 100%;
+    align-items: center;
+
+    max-width: 1200px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    background-color: var(--color-secondary);
+}
+
+/* COMPONENTS */
+.button {
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: .5rem 1.5rem;
+
+    color: var(--color-text);
+
+    background-color: var(--color-first);
+    border-radius: 1.5rem;
+
+    transition: box-shadow .5s;
+
+    cursor: pointer;
+}
+
+.button:hover {
+    box-shadow: 2px 0 24px var(--color-first);
+}
+
+/* PAGES */
+.home {
+    height: calc(100vh - var(--header-height));
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: var(--header-height);
+}
+
+@media screen and (max-width: 768px) {
+    .nav__menu {
+        position: fixed;
+        top: var(--header-height);
+        right: -100%;
+        z-index: var(--z-fixed);
+
+        width: 60%;
+        height: 100vh;
+        padding: 1.5rem;
+
+        background-color: var(--color-secondary);
+        border-top: 1px solid var(--color-text);
+        border-left: 1px solid var(--color-text);
+
+        transition: .5s;
+    }
+}
+
+.nav__item {
+    margin-bottom: 1.5rem;
+}
+
+.nav__link {
+    color: var(--color-text);
+}
+
+.nav__link:hover {
+    border-bottom: 1px solid var(--color-text);
+}
+
+.nav__icon {
+    font-size: 1.5rem;
+}
+
+.nav__logo {
+    line-height: 0;
+}
+
+.menu-toggle {
+    line-height: 0;
+    cursor: pointer;
+}
+
+/* Show menu */
+.show {
+    right: 0;
+}
+
+/* Home */
+.home__data {
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.home__title {
+    margin-bottom: .5rem;
+    color: var(--color-first);
+}
+
+.home__name {
+    display: block;
+    margin-bottom: 1.5rem;
+    font-size: var(--h3-font-size);
+}
+
+.home__social {
+    display: flex;
+    align-items: center;
+    text-align: initial;
+}
+
+.home__social-name {
+    margin-right: .5rem;
+    padding: 1rem .2rem;
+
+    font-size: var(--small-font-size);
+
+    border-left: 1px solid var(--color-text);
+
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+}
+
+.home__social-icon {
+    margin-right: 1rem;
+    color: var(--color-text);
+    z-index: var(--z-back);
+}
+
+.home__img {
+    padding: 2rem;
+}
+
+/* Media Queries */
+@media screen and (min-width: 768px) {
+    body {
+        margin: 0;
+    }
+
+    .home {
+        height: 100vh;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .button {
+        margin-bottom: 3rem;
+    }
+
+    .nav__list {
+        display: flex;
+    }
+
+    .nav__item {
+        margin-bottom: 0;
+        margin-left: 1.5rem;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .home__data {
+        padding: 0;
+        text-align: initial;
+    }
+
+    .home__social {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .bd-grid {
+        margin: 0 auto;
+    }
+}
