@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+/*-- VARIABLES CSS --*/
+
+/* Colors */
+:root {
+    --first-color: #E3F8FF;
+    --second-color: #DCFAFB;
+    --third--color: #FFE8DF;
+    --accent-color: #FF5151;
+    --dark-color: #161616;
+}
+
+/* Typography */
+:root {
+    --body-font: 'Open Sans';
+    --h1-font-size: 1.5rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: 0.938rem;
+    --smaller-font-size: 0.75rem;
+}
+
+@media screen and (min-width: 768px) {
+    :root {
+        --h1-font-size: 2rem;
+        --normal-font-size: 1rem;
+        --smaller-font-size: 0.813rem;
+    }
+}
+
+/*-- BASE --*/
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 2rem 0 0 0;
+
+    font-family: var(--body-font);
+    color: var(--dark-color);
+
+    background-color: #FFFFFF;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*-- LAYAOUT --*/
+.main {
+    padding: 2rem 0;
+}
+
+.bg-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    align-items: center;
+
+    max-width: 1200px;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+}
+
+/*-- PAGES --*/
+.title-shop {
+    position: relative;
+    margin: 0 2.5rem;
+}
+
+.title-shop::after {
+    position: absolute;
+    top: 50%;
+
+    margin-left: .25rem;
+    width: 72px;
+    height: 2px;
+
+    background-color: var(--dark-color);
+
+    content: '';
+}
+
+/*-- COMPONENT --*/
+.card {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 1.5rem 2rem;
+
+    border-radius: 1rem;
+
+    overflow: hidden;
+}
+
+article:nth-child(odd) {
+    background-color: var(--first-color);
+}
+
+article:nth-child(even) {
+    background-color: var(--third--color);
+}
+
+.card__img {
+    padding: 3rem 0; 
+    width: 180px;
+    height: auto;
+
+    transition: .5s;
+}
+
+.card__name {
+    position: absolute;
+    left: -25%;
+    top: 0;
+
+    width: 3.5rem;
+    height: 100%;
+
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+
+    background-color: var(--dark-color);
+
+    transition: .5s;
+
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+.card__icon {
+    font-size: 1.5rem;
+    color: var(--dark-color);
+}
+
+.card__icon:hover {
+    color: var(--accent-color);
+}
+
+.card__prices {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+
+    transition: .5s;
+}
+
+.card__price {
+    display: block;
+    text-align: center;
+}
+
+.card__price--before {
+    margin-bottom: .25rem;
+
+    font-size: var(--smaller-font-size);
+    color: var(--accent-color);
+}
+
+.card__price--now {
+    font-size: var(--h3-font-size);
+    font-weight: bold;
+}
+
+/* Hover move left */
+
+.card:hover {
+    box-shadow: 0 .5rem 1rem #D1D9E6;
+}
+
+.card:hover .card__name {
+    left: 0;
+}
+
+.card:hover .card__img {
+    margin-left: 3.5rem;
+    transform: rotate(30deg);
+}
+
+.card:hover .card__prices {
+    margin-left: 3.5rem;
+    padding: 0 1.5rem;
+}
+
+/*-- MEDIA QUERIES --*/
+@media screen and (min-width: 1200px) {
+    body {
+        margin: 3rem 0 0 0;
+    }
+
+    .title-shop {
+        margin: 0 5rem;
+    }
+
+    .bg-grid {
+        margin: 0 auto;
+    }
+}
