@@ -1,0 +1,245 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Tinos:wght@400;700&display=swap");
+:root {
+  --first-color: #010A43;
+  --second-color: #FFC2C2;
+  --white-color: #FFFFFF;
+}
+
+:root {
+  --body-font: "Tinos", serif;
+  --h1-font-size: 2.3rem;
+  --h2-font-size: 2.3rem;
+  --normal-font-size: 0.93rem;
+  --big-font-size: 5rem;
+  --smaller-font-size: 0.75rem;
+}
+@media screen and (min-width: 768px) {
+  :root {
+    --h1-font-size: 4.5rem;
+    --h2-font-size: 3.56rem;
+    --normal-font-size: 1rem;
+    --big-font-size: 10rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+
+:root {
+  --z-back: -10;
+  --z-normal: 1;
+  --z-tooltip: 10;
+  --z-fixed: 100;
+  --z-modal: 1000;
+}
+
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 3rem 0 0 0;
+  font-family: var(--body-font);
+  font-weight: initial;
+  overflow: hidden;
+}
+
+h1, h2 {
+  margin: 0;
+  font-weight: initial;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+p {
+  font-size: var(--normal-font-size);
+}
+
+.bg-grid {
+  max-width: 1200px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+  width: 100%;
+  color: var(--white-color);
+  background-color: var(--first-color);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3rem;
+  font-weight: bold;
+}
+@media screen and (max-width: 768px) {
+  .nav__menu {
+    position: fixed;
+    top: 3rem;
+    left: -100%;
+    z-index: var(--z-fixed);
+    width: 80%;
+    height: 100vh;
+    margin: auto;
+    padding: 2rem;
+    background-color: rgba(1, 10, 67, 0.8);
+    transition: 0.5s;
+  }
+}
+.nav__list {
+  text-align: center;
+}
+.nav__item {
+  margin-bottom: 2rem;
+}
+.nav__link {
+  padding: 0.5rem;
+  color: var(--white-color);
+}
+.nav__logo {
+  color: var(--white-color);
+}
+.nav__toggle {
+  font-size: 2rem;
+  cursor: pointer;
+}
+.nav__icon {
+  font-size: 1.3rem;
+  text-align: right;
+}
+
+.show {
+  left: 0;
+}
+
+.home {
+  position: relative;
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+  height: calc(100vh - 3rem);
+}
+.home__primary {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: var(--first-color);
+}
+.home__title {
+  font-size: var(--h1-font-size);
+  color: var(--white-color);
+  transform: rotate(180deg);
+  writing-mode: vertical-rl;
+}
+.home__img {
+  width: 235px;
+  height: auto;
+}
+.home__secondary {
+  width: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: var(--second-color);
+}
+.home__scroll {
+  position: absolute;
+  bottom: 15%;
+  left: 0;
+  font-size: var(--smaller-font-size);
+  color: var(--first-color);
+  transform: rotate(270deg);
+}
+.home__scroll::after {
+  position: absolute;
+  top: 45%;
+  left: -10%;
+  width: 38px;
+  height: 1px;
+  background-color: var(--first-color);
+  margin-left: -2.5rem;
+  content: "";
+}
+.home__year {
+  font-size: var(--big-font-size);
+  -webkit-text-stroke: 2.3px var(--first-color);
+  color: transparent;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    margin: 0;
+  }
+  .header {
+    background-color: transparent;
+  }
+  .nav {
+    display: grid;
+    grid-template-columns: 3fr 4fr 1fr;
+  }
+  .nav__list {
+    display: flex;
+  }
+  .nav__item {
+    margin-right: 5rem;
+    margin-bottom: 0;
+  }
+  .nav__toggle {
+    display: none;
+  }
+  .home {
+    grid-template-columns: 4fr 3fr;
+    grid-template-rows: 1fr;
+    height: 100vh;
+  }
+  .home__primary {
+    justify-content: center;
+  }
+  .home__img img {
+    position: absolute;
+    top: 5%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: var(--z-normal);
+    margin: auto;
+    width: 361px;
+  }
+  .home__scroll {
+    color: var(--white-color);
+  }
+  .home__scroll::after {
+    background-color: var(--white-color);
+  }
+  .home__year {
+    writing-mode: vertical-rl;
+    margin-left: 5rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .bg-grid {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}/*# sourceMappingURL=styles.css.map */
