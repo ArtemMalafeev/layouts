@@ -1,4 +1,4 @@
-let swiperCards = new Swiper('.card__content', {
+let swiperCards = new Swiper('.swiper', {
     loop: true,
     spaceBetween: 32,
     grabCursor: true,

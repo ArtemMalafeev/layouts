@@ -51,7 +51,7 @@
         --h1-font-size: 3rem;
         --h2-font-size: 1.5rem;
         --h3-font-size: 1.25rem;
-        --normal-font-size: rem;
+        --normal-font-size: 1rem;
         --small-font-size: .875rem;
         --smaller-font-size: .813rem;
     }
@@ -59,11 +59,8 @@
 
 /* Base */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+*
+
 
 html {
     scroll-behavior: smooth;
