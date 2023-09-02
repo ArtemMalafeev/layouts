@@ -110,3 +110,19 @@ ul {
 .dropdown__item:hover {
     color: var(--first-color);
 }
+
+.show-dropdown .dropdown__close {
+    opacity: 1;
+    transform: rotate(-180deg);
+}
+
+.show-dropdown .dropdown__arrow {
+    opacity: 0;
+    transform: rotate(-180deg);
+}
+
+.show-dropdown .dropdown__menu {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: initial;
+}
